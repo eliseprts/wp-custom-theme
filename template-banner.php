@@ -1,14 +1,19 @@
+<?php
+
+/**
+ * Template Name: Page avec bannière
+ * Template Post Type: page, post
+ */
+?>
+
 <?php get_header() ?>
 
 <?php if (have_posts()) :
     while (have_posts()) : the_post(); ?>
 
-        <h1><?php the_title() ?></h1>
+        <p>Ici la bannière</p>
 
-        <!-- Display alert if article is sponsored -->
-        <?php if (get_post_meta(get_the_ID(), SponsoMetaBox::META_KEY, true) === '1') : ?>
-            <div class="alert alert-info">Cette article est sponsorisé</div>
-        <?php endif ?>
+        <h1><?php the_title() ?></h1>
 
         <div>
             <img src="<?php the_post_thumbnail_url() ?>" alt="" style="width:80%; height:auto;">
