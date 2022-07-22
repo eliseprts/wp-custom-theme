@@ -20,3 +20,42 @@ _Repo created for the course [Grafikart • Créer un thème WordPress](https://
 * Manage the files needed to build a theme
 * Understand the logic used by WordPress to load the theme files
 * Use functions and methods to interact with WordPress to catch content or add features to the dashboard
+
+## Planning
+
+- [x] Install WordPress
+- [x] Create the theme
+- [x] Actions
+- [x] Filters
+- [x] WordPress loop
+- [x] Templates hierarchy
+- [x] Manage menus
+- [x] Search form
+- [x] Permalinks
+- [x] Pagination
+- [x] Page template
+- [x] Image formats
+- [x] Metadata
+- [x] Taxonomies
+- [x] Custom post type
+- [x] Theme options
+- [x] CSS and JS in dashboard
+- [x] Add columns in dashboard
+- [ ] WP_Query object
+- [ ] pre_get_posts action
+- [ ] Manage sidebars
+- [ ] Create a widget
+- [ ] Comments
+- [ ] AfterSwitchTheme
+- [ ] API Customize
+- [ ] Internationalisation
+- [ ] Children theme
+- [ ] Plugins
+- [ ] Planned events
+- [ ] wpdb object
+- [ ] API Rest
+- [ ] Manage the cache
+- [ ] Plugin Query Monitor
+- [ ] Plugin Migrate DB
+- [ ] Plugin ACF
+- [ ] Manage blocks with ACF
