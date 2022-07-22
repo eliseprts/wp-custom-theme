@@ -1,0 +1,1 @@
+jQuery('.montheme_datepickr').flatpickr();

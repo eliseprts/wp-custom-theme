@@ -1,13 +1,6 @@
 <?php get_header() ?>
 
-<?php
-/* wp_list_categories([
-    'taxonomy' => 'bien',
-    'title_li' => ''
-]); */
-?>
-
-<?php $conseils = get_terms(['taxonomy' => 'conseil']); ?>
+<h1><?= get_queried_object()->name ?></h1>
 
 <?php get_template_part("parts/taxonomy-nav"); ?>
 

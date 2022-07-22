@@ -1,15 +1,6 @@
 <?php get_header() ?>
 
-<?php
-/* wp_list_categories([
-    'taxonomy' => 'bien',
-    'title_li' => ''
-]); */
-?>
-
-<?php $conseils = get_terms(['taxonomy' => 'conseil']); ?>
-
-<?php get_template_part("parts/taxonomy-nav"); ?>
+<h1>Voir tout nos biens</h1>
 
 
 <?php if (have_posts()) : ?>

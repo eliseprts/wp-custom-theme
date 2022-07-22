@@ -77,6 +77,53 @@ function montheme_pagination()
     echo '</nav>';
 }
 
+
+function montheme_init()
+{
+    // Add a new taxonomy
+    register_taxonomy('conseil', 'post', [
+        'labels' => [
+            'name' => 'Conseils',
+            'singular_name' => 'Conseil',
+            'plural_name' => 'Conseils',
+            'search_items' => 'Rechercher des conseils',
+            'all_items' => 'Tous les conseils',
+            'edit_item' => 'Editer le conseil',
+            'update_item' => 'Mettre à jour le conseil',
+            'add_new_item' => 'Ajouter un nouveau conseil',
+            'new_item_name' => 'Ajouter un nouveau conseil',
+            'menu_name' => 'Conseils',
+        ],
+        // To show in post editor
+        'show_in_rest' => true,
+        // To display on checkbox format
+        'hierarchical' => true,
+        // Add a column with taxonomy in articles panel in dashboard
+        'show_admin_column' => true
+    ]);
+    // Add a new custom post type
+    register_post_type('bien', [
+        'labels' => [
+            'name' => 'Biens',
+            'singular_name' => 'Bien',
+            'plural_name' => 'Biens',
+            'add_new_item' => 'Ajouter un nouveau bien',
+            'edit_item' => 'Editer le bien',
+            'all_items' => 'Tous les biens',
+            'menu_name' => 'Biens',
+            'view_item' => 'Voir le bien',
+            'view_items' => 'Voir les biens'
+        ],
+        'public' => true,
+        'menu_position' => 3,
+        'menu_icon' => 'dashicons-building',
+        'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
+        'show_in_rest' => true,
+        'has_archive' => true,
+    ]);
+}
+
+add_action('init', 'montheme_init');
 add_action('after_setup_theme', 'montheme_supports');
 add_action('wp_enqueue_scripts', 'montheme_register_assets');
 add_filter('document_title_separator', 'montheme_title_separator');
@@ -86,4 +133,48 @@ add_filter('nav_menu_link_attributes', 'montheme_menu_link_class');
 
 // Add sponso metadata
 require_once('/Applications/MAMP/htdocs/go-immo/wp-content/themes/montheme/metaboxes/sponso.php');
+// Add add options to Settings menu
+require_once('/Applications/MAMP/htdocs/go-immo/wp-content/themes/montheme/options/agence.php');
+
 SponsoMetaBox::register();
+AgenceMenuPage::register();
+
+// Add a column to the list of all Biens posts
+add_filter('manage_bien_posts_columns', function ($columns) {
+    return [
+        'cb' => $columns['cb'],
+        'thumbnail' => 'Miniature',
+        'title' => $columns['title'],
+        'date' => $columns['date']
+    ];
+});
+add_filter('manage_bien_posts_custom_column', function ($column, $postid) {
+    if ($column === 'thumbnail') {
+        the_post_thumbnail('thumbnail', $postid);
+    }
+}, 10, 2);
+add_action('admin_enqueue_scripts', function () {
+    wp_enqueue_style('admin_montheme', get_template_directory_uri() . '/assets/admin.css');
+});
+
+// Add a column 'sponso' to the list of all posts
+add_filter('manage_post_posts_columns', function ($columns) {
+    $newColumns = [];
+    foreach ($columns as $k => $v) {
+        if ($k === 'date') {
+            $newColumns['sponso'] = 'Article sponsorisé ?';
+        }
+        $newColumns[$k] = $v;
+    }
+    return $newColumns;
+});
+add_filter('manage_post_posts_custom_column', function ($column, $postid) {
+    if ($column === 'sponso') {
+        if (!empty(get_post_meta($postid, SponsoMetaBox::META_KEY, true))) {
+            $class = 'yes';
+        } else {
+            $class = 'no';
+        }
+        echo '<div class="bullet bullet-' . $class . '"></div>';
+    }
+}, 10, 2);

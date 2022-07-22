@@ -1,0 +1,15 @@
+/* Style for column thumbnail in biens */
+.manage-column.column-thumbnail {
+    width: 150px;
+}
+
+/* Style for column Sponso in posts */
+.column-sponso .bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px ;
+    background-color: springgreen;
+}
+.column-sponso .bullet-no {
+    background-color: crimson ;
+}
