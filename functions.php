@@ -178,3 +178,42 @@ add_filter('manage_post_posts_custom_column', function ($column, $postid) {
         echo '<div class="bullet bullet-' . $class . '"></div>';
     }
 }, 10, 2);
+
+// pre_get_posts action (chap 22)
+function montheme_pre_get_posts(WP_Query $query)
+{
+    if (is_admin() || !is_search() || !$query->is_main_query()) {
+        return;
+    }
+    if (get_query_var('sponso') === '1') {
+        $meta_query = $query->get('meta_query', []);
+        $meta_query[] = [
+            'key' => SponsoMetaBox::META_KEY,
+            'compare' => 'EXIST',
+        ];
+        $query->set('meta_query', $meta_query);
+    }
+}
+function montheme_query_vars($params)
+{
+    $params[] = 'sponso';
+    return $params;
+}
+add_action('pre_get_posts', 'montheme_pre_get_posts');
+add_filter('query_vars', 'montheme_query_vars');
+
+// Sidebars (chap 23) + Widget (chap 24)
+require_once '/Applications/MAMP/htdocs/go-immo/wp-content/themes/montheme/widgets/YoutubeWidget.php';
+function montheme_register_widget()
+{
+    register_widget(YoutubeWidget::class);
+    register_sidebar([
+        'id' => 'homepage',
+        'name' => 'Sidebar Accueil',
+        'before_widget' => '<div class="p-4 %2$s" id="%1$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="fst-italic">',
+        'after_title' => '</h4>'
+    ]);
+}
+add_action('widgets_init', 'montheme_register_widget');

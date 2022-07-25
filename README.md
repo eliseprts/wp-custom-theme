@@ -41,10 +41,10 @@ _Repo created for the course [Grafikart • Créer un thème WordPress](https://
 - [x] Theme options
 - [x] CSS and JS in dashboard
 - [x] Add columns in dashboard
-- [ ] WP_Query object
-- [ ] pre_get_posts action
-- [ ] Manage sidebars
-- [ ] Create a widget
+- [x] WP_Query object
+- [x] pre_get_posts action
+- [x] Manage sidebars
+- [x] Create a widget
 - [ ] Comments
 - [ ] AfterSwitchTheme
 - [ ] API Customize
