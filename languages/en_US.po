@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: MonTheme\n"
+"POT-Creation-Date: 2022-07-26 14:03+0200\n"
+"PO-Revision-Date: 2022-07-26 14:04+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_n;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: comments.php:10
+#, php-format
+msgid "%s Commentaire"
+msgid_plural "%s Commentaires"
+msgstr[0] "%s Comment"
+msgstr[1] "%s Comments"
+
+#: functions.php:223
+msgid "Sidebar Accueil"
+msgstr "Home Sidebar"
+
+#: walker/CommentWalker.php:103 walker/CommentWalker.php:208
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: walker/CommentWalker.php:105 walker/CommentWalker.php:210
+msgid ""
+"Your comment is awaiting moderation. This is a preview; your comment will be "
+"visible after it has been approved."
+msgstr ""
+
+#: walker/CommentWalker.php:127 walker/CommentWalker.php:236
+#, php-format
+msgid "%s <span class=\"says\">says:</span>"
+msgstr ""
+
+#: walker/CommentWalker.php:144 walker/CommentWalker.php:249
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: walker/CommentWalker.php:150
+msgid "(Edit)"
+msgstr ""
+
+#: walker/CommentWalker.php:255
+msgid "Edit"
+msgstr ""

@@ -7,7 +7,8 @@ $count = absint(get_comments_number());
 
 <!-- Title -->
 <?php if ($count > 0) : ?>
-    <h2><?= $count ?> commentaire<?= $count > 1 ? 's' : '' ?></h2>
+    <h2><?= sprintf(_n('%s Commentaire', '%s Commentaires', $count, 'montheme'), $count); ?></h2>
+    <!-- <h2><?= $count ?> commentaire<?= $count > 1 ? 's' : '' ?></h2> -->
 <?php else : ?>
     <h2>Laisser un commentaire</h2>
 <?php endif ?>
