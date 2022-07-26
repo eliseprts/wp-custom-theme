@@ -45,9 +45,9 @@ _Repo created for the course [Grafikart • Créer un thème WordPress](https://
 - [x] pre_get_posts action
 - [x] Manage sidebars
 - [x] Create a widget
-- [ ] Comments
-- [ ] AfterSwitchTheme
-- [ ] API Customize
+- [x] Comments
+- [x] AfterSwitchTheme
+- [x] API Customize
 - [ ] Internationalisation
 - [ ] Children theme
 - [ ] Plugins

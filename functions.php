@@ -1,6 +1,11 @@
 <!-- Code executed each time theme is loaded -->
 <?php
 
+// Loading of CommentWalker.php
+require_once('/Applications/MAMP/htdocs/go-immo/wp-content/themes/montheme/walker/CommentWalker.php');
+// Customize API (chap 27)
+require_once('/Applications/MAMP/htdocs/go-immo/wp-content/themes/montheme/options/apparence.php');
+
 function montheme_supports()
 {
     // To display dynamic title
@@ -8,6 +13,8 @@ function montheme_supports()
     add_theme_support('post-thumbnails');
     // To add menu
     add_theme_support('menus');
+    // To support html5
+    add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script'));
     // To place the header menu
     register_nav_menu('header', 'En tête du menu');
     // To place the footer menu
@@ -22,6 +29,10 @@ function montheme_register_assets()
     wp_register_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css');
     wp_register_script('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js', ['popper'], false, true);
     wp_register_script('popper', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js', [], false, true);
+    // if (!is_customize_preview()) {
+    //     wp_deregister_script('jquery');
+    //     wp_register_script('jquery', 'https://code.jquery.com/jquery-3.6.0.slim.min.js', [], false, true);
+    // }
     wp_enqueue_style('bootstrap');
     wp_enqueue_script('bootstrap');
 }
