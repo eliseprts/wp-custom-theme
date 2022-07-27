@@ -54,7 +54,7 @@ _Repo created for the course [Grafikart • Créer un thème WordPress](https://
 - [x] Planned events
 - [x] wpdb object
 - [x] API Rest
-- [ ] Manage the cache
+- [x] Manage the cache
 - [ ] Plugin Query Monitor
 - [ ] Plugin Migrate DB
 - [ ] Plugin ACF
