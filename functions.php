@@ -244,7 +244,42 @@ global $wpdb;
 $tag = 'news';
 $query = $wpdb->prepare('SELECT name FROM wp_terms WHERE slug=%s', [$tag]);
 $results = $wpdb->get_results($query);
-echo '<pre>';
-var_dump($results);
-echo '</pre>';
-die();
+// echo '<pre>';
+// var_dump($results);
+// echo '</pre>';
+// die();
+
+// API (chap 33)
+add_action('rest_api_init', function () {
+    // Register routes
+    register_rest_route('montheme/v1', '/demo/(?P<id>\d+)', [
+        'methods' => 'GET',
+        // 'callback' => function () {
+        //     return ['success' => 'Hello world!'];
+        // }
+        'callback' => function (WP_REST_Request $request) {
+            $postID = (int)$request->get_param('id');
+            $post = get_post($postID);
+            if ($post === null) {
+                return new WP_Error('rien', 'On a rien à dire', ['status' => 404]);
+            }
+            return $post->post_title;
+        },
+        // Define if the user has permission depend on his role
+        'permission_callback' => function () {
+            return current_user_can('edit_posts');
+        }
+    ]);
+});
+// Desactivate the authentification if user know the correct path
+add_filter('rest_authentification_errors', function ($result) {
+    if (true === $result || is_wp_error($result)) {
+        return $result;
+    }
+    /** @var WP $wp */
+    global $wp;
+    if (strpos($wp->query_vars['rest_route'], 'montheme/v1') !== false) {
+        return true;
+    }
+    return $result;
+}, 9);
