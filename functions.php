@@ -5,6 +5,8 @@
 require_once('/Applications/MAMP/htdocs/go-immo/wp-content/themes/montheme/walker/CommentWalker.php');
 // Customize API (chap 27)
 require_once('/Applications/MAMP/htdocs/go-immo/wp-content/themes/montheme/options/apparence.php');
+// Planned event (chap 31)
+require_once('/Applications/MAMP/htdocs/go-immo/wp-content/themes/montheme/options/cron.php');
 
 function montheme_supports()
 {
@@ -233,3 +235,16 @@ add_action('widgets_init', 'montheme_register_widget');
 add_action('after_setup_theme', function () {
     load_theme_textdomain('montheme', get_template_directory() . '/languages');
 });
+
+// wpdp is a class used to interact with a database without needing to use raw SQL statements (chap 32)
+/** @var wpdb $wpdb */
+global $wpdb;
+// To retrieve result (here : name from table wp_terms where slug = news)
+// Other functions get_row, get_var ...
+$tag = 'news';
+$query = $wpdb->prepare('SELECT name FROM wp_terms WHERE slug=%s', [$tag]);
+$results = $wpdb->get_results($query);
+echo '<pre>';
+var_dump($results);
+echo '</pre>';
+die();

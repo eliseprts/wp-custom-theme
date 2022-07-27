@@ -48,11 +48,11 @@ _Repo created for the course [Grafikart • Créer un thème WordPress](https://
 - [x] Comments
 - [x] AfterSwitchTheme
 - [x] API Customize
-- [ ] Internationalisation
-- [ ] Children theme
-- [ ] Plugins
-- [ ] Planned events
-- [ ] wpdb object
+- [x] Internationalization
+- [x] Children theme
+- [x] Plugins
+- [x] Planned events
+- [x] wpdb object
 - [ ] API Rest
 - [ ] Manage the cache
 - [ ] Plugin Query Monitor
