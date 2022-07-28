@@ -1,6 +1,6 @@
 <?php get_header() ?>
 
-<h1>Voir tout nos biens</h1>
+<h1>Tous nos biens 🏠</h1>
 
 
 <?php if (have_posts()) : ?>

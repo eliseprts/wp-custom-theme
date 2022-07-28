@@ -1,5 +1,5 @@
 <!-- Card -->
-<div class="card">
+<div class="card h-100">
     <!-- Thumbnail -->
     <?php the_post_thumbnail('post-thumbnail', ['class' => 'card-img-top', 'alt' => '', 'style' => 'height:auto;']) ?>
     <div class="card-body">

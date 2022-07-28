@@ -283,3 +283,12 @@ add_filter('rest_authentification_errors', function ($result) {
     }
     return $result;
 }, 9);
+
+// ACF (chap 37)
+add_action('init', function () {
+    if (function_exists('acf_add_options_page')) {
+        acf_add_options_page([
+            'page_title' => 'Options de l\'agence'
+        ]);
+    }
+});
