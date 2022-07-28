@@ -15,7 +15,7 @@ _Repo created for the course [Grafikart • Créer un thème WordPress](https://
 
 ## Learning Objectives
 
-* Build a custom WordPress theme 
+* Understand how to build a custom WordPress theme 
 * Install WordPress locally
 * Manage the files needed to build a theme
 * Understand the logic used by WordPress to load the theme files
