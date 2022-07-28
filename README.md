@@ -57,5 +57,5 @@ _Repo created for the course [Grafikart • Créer un thème WordPress](https://
 - [x] Manage the cache
 - [x] Plugin Query Monitor
 - [x] Plugin Migrate DB
-- [ ] Plugin ACF
-- [ ] Manage blocks with ACF
+- [x] Plugin ACF
+- [x] Manage blocks with ACF
